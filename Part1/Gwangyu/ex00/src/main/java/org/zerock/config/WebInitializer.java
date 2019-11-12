@@ -1,4 +1,4 @@
-package org.zeorck.config;
+package org.zerock.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,7 +9,7 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
     @Override
     protected Class<?>[] getRootConfigClasses() {   //root-context.xml을 구현
-        logger.info("initWebConfig {}", "getRootConfigClasses");
+        logger.debug("initWebConfig {}", "getRootConfigClasses");
         return new Class[]{RootConfig.class};
     }
 
