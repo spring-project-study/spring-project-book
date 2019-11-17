@@ -20,8 +20,8 @@ public class JDBCTests {
         try {
             Connection con = DriverManager.getConnection(
                     "jdbc:oracle:thin:@localhost:35791:XE",
-                    "system",
-                    "oracle");
+                    "book_ex",
+                    "book_ex");
             System.out.println("connection");
         } catch (SQLException e) {
             e.printStackTrace();
