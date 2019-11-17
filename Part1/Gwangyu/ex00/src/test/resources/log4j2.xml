@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN">
+<!--    <appenders>-->
+<!--        <Console name="console"target="SYSTEM_OUT">-->
+<!--            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />-->
+<!--        </Console>-->
+
+<!--        <RollingFile name="file" fileName="./logs/all.log" filePattern="./logs/all.%i.%d{yyyy-MM-dd}.log">-->
+<!--            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />-->
+<!--            <Policies>-->
+<!--                <SizeBasedTriggeringPolicy size="10MB" /> &lt;!&ndash; 이 용량이 초과되면 아래 DefaultRolloverStrategy 정책만큼 넘버링 할거다. &ndash;&gt;-->
+<!--            </Policies>-->
+<!--            <DefaultRolloverStrategy max="1000" fileIndex="min" />&lt;!&ndash; 0부터 1000개 까지만 만들거다 1000개 초과되면 파일이 더생성안된다. &ndash;&gt;-->
+<!--        </RollingFile>-->
+<!--    </appenders>-->
+
+    <loggers>
+
+<!--        &lt;!&ndash; 모든 로그는 dubug레벨 이상일때만 찍고 &ndash;&gt;-->
+<!--        <root level="debug" additivity="false" >-->
+<!--            <appender-ref ref="console" />-->
+<!--            <appender-ref ref="file" />-->
+<!--        </root>-->
+
+<!--        &lt;!&ndash; 로그많이 찍어대는 요놈들은 warn수준이상만 찍겠다. &ndash;&gt;-->
+
+        <logger name="org.springframework" level="warn" additivity="false" >
+            <appender-ref ref="console" />
+            <appender-ref ref="file" />
+        </logger>
+
+<!--        <logger name="org.apache.http" level="warn" additivity="false" >-->
+<!--            <appender-ref ref="console" />-->
+<!--            <appender-ref ref="file" />-->
+<!--        </logger>-->
+
+
+<!--        &lt;!&ndash; 내패키지는 무조건 찍자 &ndash;&gt;-->
+<!--        <logger name="kr.co.mypackage" level="trace" additivity="false" >-->
+<!--            <appender-ref ref="console" />-->
+<!--            <appender-ref ref="file" />-->
+<!--        </logger>-->
+
+    </loggers>
+</configuration>
+

@@ -14,9 +14,11 @@ public class HomeController {
     public static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
     public HomeController() {
+        System.out.println("contruct...");
     }
 
     @RequestMapping(value = "/")
+
     public String Home(ModelMap model){
         System.out.println("home.....");
         logger.debug("Logger","homeController");
