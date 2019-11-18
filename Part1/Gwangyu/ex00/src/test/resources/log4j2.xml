@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN">
+    <loggers>
+        <logger name="org.springframework" level="warn" additivity="false" >
+            <appender-ref ref="console" />
+            <appender-ref ref="file" />
+        </logger>
+
+    </loggers>
+</configuration>
+

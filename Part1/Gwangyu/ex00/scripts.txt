@@ -1,0 +1,5 @@
+# docker oracledb
+
+docker run --name oracledb  -d -p 35790:22 -p 35791:1521 oracleinanutshell/oracle-xe-11g
+
+docker start oracledb

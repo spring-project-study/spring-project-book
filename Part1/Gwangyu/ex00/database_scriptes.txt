@@ -1,0 +1,8 @@
+# 계정생성
+CREATE USER book_ex IDENTIFIED BY book_ex;
+
+# 권한부여
+GRANT CONNECT, resource, plustrace, ALTER SESSION TO book_ex;
+
+# 사용하고있는 포트 확인
+SELECT dbms_xdb.gethttpport() FROM dual

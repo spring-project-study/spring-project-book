@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+<!--    <Appenders>-->
+<!--        &lt;!&ndash; Console 출력을 위한 Appender &ndash;&gt;-->
+<!--        <Console name="console" target="SYSTEM_OUT">-->
+<!--            <PatternLayout pattern="%d %5p [%c] %m%n" />-->
+<!--        </Console>-->
+<!--    </Appenders>-->
+<!--    <Loggers>-->
+<!--        <Logger name="java.sql" level="INFO" additivity="false">-->
+<!--            <AppenderRef ref="console" />-->
+<!--            <AppenderRef ref="dailyRollingFileAppender" />-->
+<!--        </Logger>-->
+<!--        <Logger name="egovframework" level="DEBUG" additivity="false">-->
+<!--            <AppenderRef ref="console" />-->
+<!--            <AppenderRef ref="dailyRollingFileAppender" />-->
+<!--        </Logger>-->
+<!--        &lt;!&ndash; log SQL with timing information, post execution &ndash;&gt;-->
+<!--        <Logger name="jdbc.sqltiming" level="INFO" additivity="false">-->
+<!--            <AppenderRef ref="console" />-->
+<!--            <AppenderRef ref="dailyRollingFileAppender" />-->
+<!--        </Logger>-->
+<!--        <Logger name="org.springframework" level="INFO" additivity="false">-->
+<!--            <AppenderRef ref="console" />-->
+<!--            <AppenderRef ref="dailyRollingFileAppender" />-->
+<!--        </Logger>-->
+<!--        <Root level="INFO">-->
+<!--            <AppenderRef ref="console" />-->
+<!--            <AppenderRef ref="dailyRollingFileAppender" />-->
+<!--        </Root>-->
+<!--    </Loggers>-->
+</Configuration>
