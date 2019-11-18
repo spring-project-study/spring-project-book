@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @EnableWebMvc
-@ComponentScan(basePackages = {"org.zerock.controller"})
+@ComponentScan(basePackages = {"org.zerock.controller", "org.zerock.exception"})
 public class ServletConfig implements WebMvcConfigurer {
 
     public void configureViewResolvers(ViewResolverRegistry registry) {
