@@ -6,8 +6,51 @@
 
     <select id="getList" resultType="org.zerock.domain.BoardVO">
         <![CDATA[
-        select * from tbl_board where bno > 0
+
+                select * from tbl_board where bno > 0
+
         ]]>
     </select>
 
+    <insert id="insert">
+        insert into tbl_board (bno,title,content,writer)
+        values (seq_board.nextval,#{title}, #{content}, #{writer})
+    </insert>
+
+    <insert id="insertSelectKey">
+
+        <selectKey keyProperty="bno" order="BEFORE" resultType="long">
+            select seq_board.nextval from dual
+        </selectKey>
+
+        insert into tbl_board (bno,title,content,writer)
+        values (#{bno}, #{title}, #{content}, #{writer})
+
+    </insert>
+
+    <select id="read" resultType="org.zerock.domain.BoardVO">
+        select *
+        from tbl_board
+        where bno =#{bno}
+
+    </select>
+
+    <delete id="delete" >
+        delete from tbl_board
+        where bno = #{bno}
+    </delete>
+
+    <update id="update" parameterType="org.zerock.domain.BoardVO" >
+        update
+        tbl_board
+        set
+        title = #{title},
+        content = #{content},
+        writer = #{writer},
+        updateDate = sysdate
+
+        where
+        bno = #{bno}
+
+    </update>
 </mapper>
