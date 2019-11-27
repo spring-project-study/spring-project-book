@@ -1,10 +1,11 @@
 package org.zerock.mapper;
 
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Component;
 import org.zerock.domain.BoardVO;
 
 import java.util.List;
-
+@Component
 public interface BoardMapper {
 
     //@Select("select * from tbl_board where bno > 0")
