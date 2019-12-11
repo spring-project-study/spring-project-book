@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.zerock.domain.BoardVO;
-import org.zerock.mapper.BoardMapper;
+import org.zerock.domain.Criteria;
+import org.zerock.service.BoardService;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -35,7 +36,9 @@ public class BoardServiceTests {
 
     @Test
     public void testGetList(){
-        service.getList().forEach(board -> System.out.println(board));
+
+//        service.getList().forEach(board -> System.out.println(board));
+        service.getList(new Criteria(2,10)).forEach(board -> System.out.println(board));
     }
 
     @Test

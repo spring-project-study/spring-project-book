@@ -1,10 +1,11 @@
 package org.zerock.mapper;
 
-import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Criteria;
 
 import java.util.List;
+
 @Component
 public interface BoardMapper {
 
@@ -20,4 +21,8 @@ public interface BoardMapper {
     public int delete(long bno);
 
     public int update(BoardVO board);
+
+    public List<BoardVO> getListWithPaging(Criteria cri);
+
+    public int getTotalCount(Criteria cri);
 }
