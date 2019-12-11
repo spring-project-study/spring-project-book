@@ -1,8 +1,8 @@
 package org.zerock.config;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import org.zerock.domain.SampleDTO;
 
 public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
-
     protected Class<?>[] getRootConfigClasses() {
         return new Class[] {RootConfig.class};
     }
@@ -15,3 +15,4 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
         return new String[] {"/"};
     }
 }
+
