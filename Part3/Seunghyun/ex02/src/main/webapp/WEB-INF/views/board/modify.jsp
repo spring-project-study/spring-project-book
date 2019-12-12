@@ -25,7 +25,8 @@
     
         <input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum }"/>'>
         <input type='hidden' name='amount' value='<c:out value="${cri.amount }"/>'>
-	    
+	    <input type='hidden' name='type' value='<c:out value="${cri.type }"/>'>
+        <input type='hidden' name='keyword' value='<c:out value="${cri.keyword }"/>'>
  
 <div class="form-group">
   <label>Bno</label> 
@@ -103,16 +104,13 @@ $(document).ready(function() {
 	      formObj.attr("action", "/board/list").attr("method","get");
 	      var pageNumTag = $("input[name='pageNum']").clone();
 	      var amountTag = $("input[name='amount']").clone();
-	      
+	      var keywordTag = $("input[name='keyword']").clone();
+	      var typeTag = $("input[name='type']").clone();     
 	      formObj.empty();
 	      formObj.append(pageNumTag);
 	      formObj.append(amountTag);
-	      /*
-	      
-	      var keywordTag = $("input[name='keyword']").clone();
-	      var typeTag = $("input[name='type']").clone();      
 	      formObj.append(keywordTag);
-	      formObj.append(typeTag);*/   
+	      formObj.append(typeTag);
 	    }
 	    // operation modify 이면 그대로 위에서 설정한 modify.jsp로 post
 	    // remove 면 .attr 로 action 이 바뀜
