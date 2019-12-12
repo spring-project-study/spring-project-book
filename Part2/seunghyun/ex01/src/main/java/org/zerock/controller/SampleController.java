@@ -33,25 +33,12 @@ public class SampleController {
 		log.info("age: " + a);
 		return "getNameAge";
 	}
-	
-	@GetMapping("/getNameAge/test")
-	public String getNameAgeTest(@RequestParam("name") String n, @RequestParam("age" ) int a) {
-		log.info("test");
-		return "getNameAgeTest";
-	}
-	
+
 	@GetMapping("/ex04")
-	public String ex04(SampleDTO dto, @ModelAttribute("page") int page) {
+	public String ex04(SampleDTO dto, @ModelAttribute int page) {
 		log.info("dto:" + dto);
 		log.info("page: " + page);
 		return "ex04";
-	}
-	
-	@GetMapping("/ex042")
-	public String ex042(SampleDTO dto, @ModelAttribute("mage") int mage) {
-		log.info("dto:" + dto);
-		log.info("mage: " + mage);
-		return "ex042";
 	}
 	
 	@GetMapping("/ex06")
