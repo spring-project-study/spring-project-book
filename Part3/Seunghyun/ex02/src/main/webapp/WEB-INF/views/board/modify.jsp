@@ -100,7 +100,7 @@ $(document).ready(function() {
 	    }else if(operation === 'list'){
 	      //self.location = "/board/list";
 	      //return;
-	    	
+	   	  // 기본값 modify에 post 라서 바꿔줌
 	      formObj.attr("action", "/board/list").attr("method","get");
 	      var pageNumTag = $("input[name='pageNum']").clone();
 	      var amountTag = $("input[name='amount']").clone();
