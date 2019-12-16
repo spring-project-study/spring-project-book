@@ -56,12 +56,16 @@ public class ReplyController {
                 new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @PatchMapping(value = "/{rno}")
-    @PutMapping(value = "/{rno}")
+//    @PutMapping(value = "/{rno}")
+//    @PatchMapping(value = "/{rno}")
+    @RequestMapping(method = {RequestMethod.PUT, RequestMethod.PATCH},
+            value = "/{rno}",
+            consumes = "application/json",
+            produces = {MediaType.TEXT_PLAIN_VALUE})
     public ResponseEntity<String> modify(@PathVariable("rno") Long rno, @RequestBody ReplyVO vo) {
         vo.setRno(rno);
         return service.modify(vo) == 1 ?
-                new ResponseEntity<>("success",HttpStatus.OK) :
+                new ResponseEntity<>("success", HttpStatus.OK) :
                 new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 
     }
