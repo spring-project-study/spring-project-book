@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import lombok.extern.log4j.Log4j;
 
-//@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {org.ggyool.config.RootConfig.class} )
 @Log4j
 public class ReplyMapperTests {
@@ -64,6 +64,13 @@ public class ReplyMapperTests {
 	public void testList() {
 		Criteria cri = new Criteria();
 		//1212530L
+		List<ReplyVO> replies = mapper.getListWithPaging(cri, bnoArr[0]);
+		replies.forEach(reply->log.info(reply));
+	}
+	
+	@Test
+	public void testList2() {
+		Criteria cri = new Criteria(2,2);
 		List<ReplyVO> replies = mapper.getListWithPaging(cri, bnoArr[0]);
 		replies.forEach(reply->log.info(reply));
 	}

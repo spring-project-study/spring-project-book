@@ -3,6 +3,7 @@ package org.ggyool.service;
 import java.util.List;
 
 import org.ggyool.domain.Criteria;
+import org.ggyool.domain.ReplyPageDTO;
 import org.ggyool.domain.ReplyVO;
 import org.ggyool.mapper.ReplyMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,13 @@ public class ReplyServiceImpl implements ReplyService {
 	public List<ReplyVO> getList(Criteria cri, Long bno) {
 		log.info("getList: " + bno);
 		return mapper.getListWithPaging(cri, bno);
+	}
+	
+	@Override
+	public ReplyPageDTO getListPage(Criteria cri, Long bno) {
+		return new ReplyPageDTO(
+				mapper.getCountByBno(bno),
+				mapper.getListWithPaging(cri, bno)
+				);
 	}
 }

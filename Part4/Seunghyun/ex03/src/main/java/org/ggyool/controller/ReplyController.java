@@ -3,6 +3,7 @@ package org.ggyool.controller;
 import java.util.List;
 
 import org.ggyool.domain.Criteria;
+import org.ggyool.domain.ReplyPageDTO;
 import org.ggyool.domain.ReplyVO;
 import org.ggyool.service.ReplyService;
 import org.springframework.http.HttpStatus;
@@ -42,12 +43,13 @@ public class ReplyController {
 	
 	@GetMapping(value = "/pages/{bno}/{page}", 
 			produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public ResponseEntity<List<ReplyVO>> getList(@PathVariable("bno") Long bno,
+	public ResponseEntity<ReplyPageDTO> getList(@PathVariable("bno") Long bno,
 			@PathVariable("page") int page) {
 		log.info("getList");
 		Criteria cri = new Criteria(page, 10);
 		log.info(cri);
-		return new ResponseEntity<>(service.getList(cri, bno), HttpStatus.OK);
+		
+		return new ResponseEntity<>(service.getListPage(cri, bno), HttpStatus.OK);
 	}
 	
 	@GetMapping(value = "/{rno}",
