@@ -50,8 +50,7 @@ public class SampleController {
 
     @GetMapping(value = "/check", params = {"height", "weight"})
     public ResponseEntity<SampleVO> check(Double height, Double weight) {
-        SampleVO vo = new SampleVO(0, "" + height, "" + weight);
-
+        SampleVO vo = new SampleVO(0, String.valueOf(height), "" + weight);
         ResponseEntity<SampleVO> result = null;
         if (height < 150) {
             result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(vo);
