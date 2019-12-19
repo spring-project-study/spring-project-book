@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
@@ -12,6 +12,7 @@
 <%@include file="../includes/left-navi.jsp" %>
 <%@include file="../includes/top-bar.jsp" %>
 <!-- Begin Page Content -->
+<script
 <div class="container-fluid">
 
     <!-- Page Heading -->
@@ -37,15 +38,16 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${list}" var="board">
-                        <tr>
-                            <td>${board.bno}</td>
-                            <td><a href="/board/get?bno=<c:out value="${board.bno}"/>">${board.title}</a></td>
-                            <td>${board.writer}</td>
-                            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regDate}"/></td>
-                            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.updateDate}"/></td>
-                        </tr>
-                    </c:forEach>
+                ${board.get(0)}
+<%--                    <c:forEach items="${list}" var="board">--%>
+<%--                        <tr>--%>
+<%--                            <td>${board.bno}</td>--%>
+<%--                            <td><a href="/board/get?bno=<c:out value="${board.bno}"/>">${board.title}</a></td>--%>
+<%--                            <td>${board.writer}</td>--%>
+<%--                            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regDate}"/></td>--%>
+<%--                            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.updateDate}"/></td>--%>
+<%--                        </tr>--%>
+<%--                    </c:forEach>--%>
                     </tbody>
                 </table>
             </div>
