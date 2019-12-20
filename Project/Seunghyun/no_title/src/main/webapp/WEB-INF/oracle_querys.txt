@@ -1,0 +1,20 @@
+create sequence seq_user;
+
+create table tbl_user(
+uno number(10, 0),
+userid varchar2(50) not null,
+userpassword varchar2(50) not null,
+registerdate date default sysdate,
+recentdate date default sysdate
+);
+
+alter table tbl_user add constraint pk_user
+primary key(uno);
+
+alter table tbl_user add constraint unique_userid
+unique(userid);
+
+
+insert into tbl_user (uno, userid, userpassword)
+values (seq_user.nextval, 'user00', 'user00');
+
