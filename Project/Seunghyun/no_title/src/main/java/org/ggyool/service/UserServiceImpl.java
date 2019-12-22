@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public boolean register(UserVO vo) {
 		mapper.insert(vo);
-		if(vo.getUno() > 0)
+		if(vo.getUno() != null)
 		{
 			mapper.createTable("user_tbl_" + vo.getUno().toString());
 			return true;
@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public boolean remove(Long uno) {
-		if(mapper.delete(uno) == 1)
+		if(mapper.delete(uno) > 0)
 		{
 			mapper.deleteTable("user_tbl_" + uno.toString());
 			return true;
@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public boolean modify(UserVO vo) {
-		return mapper.update(vo) == 1 ? true : false;
+		return mapper.update(vo) > 0 ? true : false;
 	}
 	
 	
