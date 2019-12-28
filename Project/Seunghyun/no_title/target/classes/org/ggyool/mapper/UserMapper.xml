@@ -4,6 +4,20 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.ggyool.mapper.UserMapper">
 	
+	<resultMap type="org.ggyool.domain.UserVO" id="userMap">
+		<id property="uno" column="uno" />
+		<result property="userId" column="userid" />
+		<result property="userPassword" column="userpassword" />
+		<result property="registerDate" column="registerdate" />
+		<result property="recentDate" column="recentdate" />
+		<collection property="authList" resultMap="authMap"></collection>
+	</resultMap>
+	
+	<resultMap type="org.ggyool.domain.AuthVO" id="authMap">
+		<result property="uno" column="uno" />
+		<result property="auth" column="auth" />
+	</resultMap>
+	
 	<insert id="insert">
 		<selectKey keyProperty="uno" resultType="long" order="BEFORE">
 			select seq_user.nextval from dual
@@ -25,7 +39,11 @@
 	</update>
 
 	<select id="read" resultType="org.ggyool.domain.UserVO">
-		select * from tbl_user where uno=#{uno}
+		SELECT
+			mem.uno, userid, userpassword, registerdate, recentdate, auth
+		FROM
+			tbl_user mem LEFT OUTER JOIN tbl_user_auth auth on mem.uno = auth.uno
+		WHERE mem.uno = #{uno}
 	</select>
 	
 	<delete id="delete">

@@ -3,6 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="/WEB-INF/views/includes/header.jsp" %>
 
-<h1 class="contents">메인화면입니다.</h1>
+<h1 class="contents">problems.</h1>
 
 <%@include file="/WEB-INF/views/includes/footer.jsp" %>

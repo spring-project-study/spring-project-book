@@ -18,3 +18,10 @@ unique(userid);
 insert into tbl_user (uno, userid, userpassword)
 values (seq_user.nextval, 'user00', 'user00');
 
+
+create table tbl_user_auth(
+uno number(10, 0),
+auth varchar2(50) not null,
+constraint fk_user_auth foreign key(uno) 
+references tbl_user(uno)
+);

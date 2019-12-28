@@ -1,0 +1,57 @@
+@charset "EUC-KR";
+
+.header_frame{
+	display : table;
+}
+
+#nav_ul{
+	display : talbe;
+}
+
+#nav_ul li{
+	display : table-cell;
+	list-style-type : none; 
+	background-color : rgba(212,244,250,0.6);
+	color : rgb(72,72,72);
+	
+	padding : 0.5em 1em;
+	margin-right : 10px;
+	font-family : Dotum, 'µ¸¿ò', Apple SD Gothic Neo, sans-serif;
+	font-size : 1.2em;
+	font-weight : bold;
+	cursor : pointer;
+}
+
+#nav_ul li:hover{
+	background-color : rgba(188,188,255,1);
+}
+
+
+#user_bar{
+	display : table-cell;
+}
+
+#user_bar li{
+	display : table-cell;
+	list-style-type : none; 	
+	background-color : rgba(250,236,197,0.6);
+	color : rgb(72,72,72);
+	
+	
+	padding : 0.5em 1em;
+	margin-right : 10px;
+	font-family : Dotum, 'µ¸¿ò', Apple SD Gothic Neo, sans-serif;
+	font-size : 1.2em;
+	font-weight : bold;
+	cursor : pointer;
+}
+
+#user_bar li:hover{
+	background-color : rgba(255,255,72,0.8);
+}
+
+.contents{
+	font-family : Dotum, 'µ¸¿ò', Apple SD Gothic Neo, sans-serif;
+	font-size : 2em;
+	font-weight : bold;
+}
