@@ -5,28 +5,17 @@
 <%@ page import="java.util.*" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-	<title>customLogin</title>
+	<title>customLogout</title>
 </head>
 <body>
-	<h1>Custom Login Page</h1>
-	<h2>${error}</h2>
-	<h2>${logout}</h2>
-	
-	<form method="post" action="/login">
-		<div>
-			<input type="text" name="username" value="member">
-		</div>
-		<div>
-			<input type="password" name="password" value="member">
-		</div>
-		<div>
-			<input type="submit">
-		</div>
+	<h1>Logout Page</h1>
+	<form action="/customLogout" method="post">
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+		<button>로그아웃</button>
 	</form>
-
 </body>
 </html>
 

@@ -8,9 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
 
-@Log4j
-@Service
-@AllArgsConstructor
+
 public class UserServiceImpl implements UserService{
 	
 	private UserMapper mapper;

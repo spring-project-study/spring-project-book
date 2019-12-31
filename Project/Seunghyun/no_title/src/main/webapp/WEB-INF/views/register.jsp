@@ -5,22 +5,34 @@
 <%@ page import="java.util.*" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-	<title>customLogin</title>
+	<title>register page</title>
 </head>
 <body>
-	<h1>Custom Login Page</h1>
-	<h2>${error}</h2>
-	<h2>${logout}</h2>
+	<h1>Member Register Page</h1>
 	
-	<form method="post" action="/login">
+	<form method="post" action="/register">
+		<div> 아이디를 입력하세요.(영어)</div>
 		<div>
-			<input type="text" name="username" value="member">
+			<input type="text" name="userid">
 		</div>
+		<br>
+		
+		<div> 비밀번호를 입력하세요.</div>
 		<div>
-			<input type="password" name="password" value="member">
+			<input type="password" name="userpw" >
 		</div>
+		<br>
+		
+		
+		<div> 닉네임을 입력하세요.</div>
+		<div>
+			<input type="text" name="userName">
+		</div>
+		<br>
+		
 		<div>
 			<input type="submit">
 		</div>

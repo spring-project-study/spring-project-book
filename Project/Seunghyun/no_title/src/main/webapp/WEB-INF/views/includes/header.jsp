@@ -37,6 +37,28 @@
 			<li id="user_bar_li_logout">로그아웃</li>
 		</ul>
 		</sec:authorize>
-		
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#nav_li_home").on("click",function(){
+			self.location = "/";
+		});	
+		$("#nav_li_problem").on("click",function(){
+			self.location = "/problem/all";
+		});	
+		
+		$("#user_bar_li_register").on("click",function(){
+			self.location = "/register";
+		});		
+		$("#user_bar_li_login").on("click",function(){
+			self.location = "/customLogin";
+		});		
+		$("#user_bar_li_logout").on("click",function(){
+			self.location = "/customLogout";
+		});		
+	});
+
+	
+</script>
