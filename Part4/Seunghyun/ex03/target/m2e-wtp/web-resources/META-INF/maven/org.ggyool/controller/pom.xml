@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.ggyool</groupId>
 	<artifactId>controller</artifactId>
-	<name>ex02</name>
+	<name>ex03</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>

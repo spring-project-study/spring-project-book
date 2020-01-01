@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ggyool.mapper.UserMapper">
+	
+	<resultMap type="org.ggyool.domain.UserVO" id="userMap">
+		<id property="uno" column="uno" />
+		<result property="userId" column="userid" />
+		<result property="userPassword" column="userpassword" />
+		<result property="registerDate" column="registerdate" />
+		<result property="recentDate" column="recentdate" />
+		<collection property="authList" resultMap="authMap"></collection>
+	</resultMap>
+	
+	<resultMap type="org.ggyool.domain.AuthVO" id="authMap">
+		<result property="uno" column="uno" />
+		<result property="auth" column="auth" />
+	</resultMap>
+	
+	<insert id="insert">
+		<selectKey keyProperty="uno" resultType="long" order="BEFORE">
+			select seq_user.nextval from dual
+		</selectKey>
+		insert into tbl_user(uno, userid, userpassword)
+		values (#{uno}, #{userId}, #{userPassword})
+	</insert>  
+	
+	<update id="createTable" parameterType="string">
+		create table ${value}
+		(
+			pno number(20, 0),
+			answercount number(5, 0),
+			totalcount number(5, 0),
+			maked char(1) not null,
+			solved char(1) not null,
+			submittime date default sysdate
+		)
+	</update>
+
+	<select id="read" resultType="org.ggyool.domain.UserVO">
+		SELECT
+			mem.uno, userid, userpassword, registerdate, recentdate, auth
+		FROM
+			tbl_user mem LEFT OUTER JOIN tbl_user_auth auth on mem.uno = auth.uno
+		WHERE mem.uno = #{uno}
+	</select>
+	
+	<delete id="delete">
+		delete from tbl_user where uno=#{uno}
+	</delete>
+	
+	<update id="update">
+		update tbl_user
+		set userid = #{userId},
+		userpassword = #{userPassword},
+		recentdate = sysdate
+		where uno = #{uno}
+	</update>
+	 
+	 <update id="deleteTable" parameterType="string">
+	 	drop table ${value}
+	 </update>
+</mapper>

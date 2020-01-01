@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ggyool.mapper.MemberMapper">
+
+	<resultMap type="org.ggyool.domain.MemberVO" id="memberMap">
+		<id property="userid" column="userid"/>
+		<result property="userid" column="userid"/>
+		<result property="userpw" column="userpw"/>
+		<result property="userName" column="username"/>
+		<result property="regDate" column="regdate"/>
+		<result property="updateDate" column="updatedate"/>
+		<collection property="authList" resultMap="authMap">
+		</collection>
+	</resultMap>
+	
+	<resultMap type="org.ggyool.domain.AuthVO" id="authMap">
+		<result property="userid" column="userid"/>
+		<result property="auth" column="auth"/>
+	</resultMap>
+	
+	<select id="read" resultMap="memberMap">
+		SELECT
+			mem.userid, userpw, username, enabled, regdate, updatedate, auth
+		FROM
+			tbl_member mem LEFT OUTER JOIN tbl_member_auth auth on mem.userid = auth.userid
+		WHERE mem.userid = #{userid}
+	</select>
+	
+	<insert id="insert">
+		insert into tbl_member(userid, userpw, username)
+		values (#{userid}, #{userpw}, #{userName})
+	</insert>		
+	
+	<insert id="authInsert">
+		insert into tbl_member_auth(userid, auth)
+		values (#{userid},'ROLE_MEMBER')
+	</insert>  
+	
+
+	<update id="createTable" parameterType="string">
+		create table ${value}
+		(
+			pid number(20, 0),
+			answercount number(5, 0),
+			totalcount number(5, 0),
+			maked char(1) not null,
+			solved char(1) not null,
+			submittime date
+		)
+	</update>
+
+	<update id="deleteTable" parameterType="string">
+		drop table ${value}
+	</update>
+	
+	<delete id="authDelete">
+		delete from tbl_member_auth
+		where userid=#{userid}
+	</delete> 
+	
+	<delete id="delete">
+		delete from tbl_member
+		where userid=#{userid}
+	</delete>
+</mapper>
