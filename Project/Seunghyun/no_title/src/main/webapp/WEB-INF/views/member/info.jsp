@@ -4,21 +4,14 @@
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@include file="/WEB-INF/views/includes/header.jsp" %>
 
-<h1>Custom Login Page</h1>
-<h2>${error}</h2>
-<h2>${logout}</h2>
+<h1 class="contents">user info page</h1>
 
-<form method="post" action="/login">
-	<div>
-		<input type="text" name="username">
-	</div>
-	<div>
-		<input type="password" name="password">
-	</div>
-	<div>
-		<input type="submit">
-	</div>
-	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-</form>
+<p> 아이디 : <sec:authentication property="principal.member.userid" /></p>
+<p> 닉네임 : <sec:authentication property="principal.member.userName" /></p>
+<p> 가입일 : <sec:authentication property="principal.member.regDate" /></p>
+
+
+<br>
+<a href="/">※ 탈퇴 (미구현) </a>
 
 <%@include file="/WEB-INF/views/includes/footer.jsp" %>

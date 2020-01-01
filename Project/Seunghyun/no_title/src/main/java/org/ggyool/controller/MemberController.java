@@ -33,4 +33,11 @@ public class MemberController {
 		service.register(vo);
 		return "redirect:/";
 	}
+	
+	@GetMapping("/info")
+	public void memberInfo() {
+		
+	}
+	
+	
 }
