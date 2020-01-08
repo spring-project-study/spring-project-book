@@ -1,0 +1,43 @@
+create table tbl_member(
+	user_id varchar(50) not null primary key,
+	user_pw varchar(2000) not null,
+	user_name varchar(50),
+	reg_date datetime default current_timestamp,
+	recent_login_date datetime default current_timestamp
+);
+
+
+create table tbl_problem(
+	problem_id integer not null auto_increment primary key,
+	user_id varchar(50),
+	user_name varchar(50),
+	problem_title varchar(100) not null,
+	problem_content varchar(4000) not null,
+	problem_type char(1) default 'm',
+	reg_date datetime default current_timestamp,
+	update_date datetime default current_timestamp,
+	foreign key (user_id) references tbl_member(user_id)
+);
+
+// increment 1로 되돌리고 싶을 때
+alter table tbl_problem auto_increment 1;
+
+
+create table tbl_multiple_choice(
+	choice_id integer not null auto_increment primary key,
+	problem_id integer,
+	choice_content varchar(1000) not null,
+	foreign key (problem_id) references tbl_problem(problem_id),
+	index idx_tbl_multiple_choice(problem_id)
+);
+
+create table tbl_multiple_choice_answer(
+	problem_id integer,
+	choice_id integer, 
+	comment varchar(4000),
+	foreign key (problem_id) references tbl_problem(problem_id),
+	index idx_tbl_answer(problem_id),
+	foreign key (choice_id) references tbl_multiple_choice(choice_id)
+);
+
+

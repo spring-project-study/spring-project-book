@@ -10,20 +10,20 @@
 <form method="post" action="/register">
 	<div> 아이디를 입력하세요.(영어)</div>
 	<div>
-		<input type="text" name="userid">
+		<input type="text" name="user_id">
 	</div>
 	<br>
 	
 	<div> 비밀번호를 입력하세요.</div>
 	<div>
-		<input type="password" name="userpw" >
+		<input type="password" name="user_pw" >
 	</div>
 	<br>
 	
 	
 	<div> 닉네임을 입력하세요.</div>
 	<div>
-		<input type="text" name="userName">
+		<input type="text" name="user_name">
 	</div>
 	<br>
 	

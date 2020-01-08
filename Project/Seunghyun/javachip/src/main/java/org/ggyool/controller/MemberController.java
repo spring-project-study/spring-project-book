@@ -31,10 +31,10 @@ public class MemberController {
 		//request.setCharacterEncoding("UTF-8");
 		Map<String, ?> flashMap = RequestContextUtils.getInputFlashMap(request);
 		MemberVO vo = (MemberVO) flashMap.get("vo");
-		vo.setUserpw(passEncoder.encode(vo.getUserpw()));
+		vo.setUser_pw(passEncoder.encode(vo.getUser_pw()));
 		service.register(vo);
 		System.out.println("here!");
-		System.out.println(vo.getUserName());
+		System.out.println(vo.getUser_id());
 		return "redirect:/";
 	}
 	
