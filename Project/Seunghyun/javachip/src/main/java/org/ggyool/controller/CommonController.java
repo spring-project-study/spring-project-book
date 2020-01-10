@@ -42,7 +42,6 @@ public class CommonController {
 	
 	@GetMapping("/customLogout")
 	public void logoutGET(String password){
-		log.info(password);
 		log.info("get custom logout");	
 	}
 	
@@ -58,9 +57,7 @@ public class CommonController {
 	
 	@PostMapping("/register")
 	public String regiterPost(MemberVO vo, RedirectAttributes rttr) {
-		
 		rttr.addFlashAttribute("vo", vo);
-		
 		return "redirect:/member/register";
 	}
 }

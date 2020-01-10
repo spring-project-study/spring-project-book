@@ -6,9 +6,9 @@
 
 <h1 class="contents">user info page</h1>
 
-<p> 아이디 : <sec:authentication property="principal.member.userid" /></p>
-<p> 닉네임 : <sec:authentication property="principal.member.userName" /></p>
-<p> 가입일 : <sec:authentication property="principal.member.regDate" /></p>
+<p> 아이디 : <sec:authentication property="principal.member.user_id" /></p>
+<p> 닉네임 : <sec:authentication property="principal.member.user_name" /></p>
+<p> 가입일 : <sec:authentication property="principal.member.reg_date" /></p>
 
 
 <br>

@@ -28,13 +28,10 @@ public class MemberController {
 	
 	@GetMapping("/register")
 	public String memberRegsiter(HttpServletRequest request) throws UnsupportedEncodingException {
-		//request.setCharacterEncoding("UTF-8");
 		Map<String, ?> flashMap = RequestContextUtils.getInputFlashMap(request);
 		MemberVO vo = (MemberVO) flashMap.get("vo");
 		vo.setUser_pw(passEncoder.encode(vo.getUser_pw()));
 		service.register(vo);
-		System.out.println("here!");
-		System.out.println(vo.getUser_id());
 		return "redirect:/";
 	}
 	

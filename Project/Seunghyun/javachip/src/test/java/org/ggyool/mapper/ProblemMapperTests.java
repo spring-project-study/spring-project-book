@@ -1,5 +1,7 @@
 package org.ggyool.mapper;
 
+import java.util.List;
+
 import org.ggyool.domain.ProblemVO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,10 +24,11 @@ public class ProblemMapperTests {
 		ProblemVO vo = new ProblemVO();
 		vo.setUser_id("ggyool2");
 		vo.setUser_name("가나다라마바사");
-		vo.setProblem_title("테스트 문제1 제목");
-		vo.setProblem_content("테스트 문제1 내용");
-		vo.setProblem_type('s');
-		mapper.insert(vo);
+		vo.setProblem_title("테스트 문제4 제목");
+		vo.setProblem_content("테스트 문제4 내용");
+		vo.setProblem_type('m');
+		log.info("here:" + mapper.insert(vo));
+		log.info("here:" + vo.getProblem_id());
 	}
 	
 	//@Test
@@ -49,4 +52,11 @@ public class ProblemMapperTests {
 	public void deleteTest() {
 		mapper.delete(1);
 	}
+	
+	//@Test 
+	public void getListTest() { 
+		List<ProblemVO> lst = mapper.getListAll();
+		log.info(lst);
+	}
+	
 }

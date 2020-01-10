@@ -10,9 +10,9 @@
 		where problem_id=#{problem_id}
 	</select>
 	
-	<insert id="insert">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="problem_id">
 		insert into tbl_problem (user_id, user_name, problem_title, problem_content, problem_type) 
-		values (#{user_id}, #{user_name}, #{problem_title}, #{problem_content}, #{problem_type}) 
+		values (#{user_id}, #{user_name}, #{problem_title}, #{problem_content}, #{problem_type})
 	</insert>
 	
 	<update id="update">
@@ -30,4 +30,7 @@
 		delete from tbl_problem where problem_id=#{problem_id}
 	</delete>
 	
+	<select id="getListAll" resultType="org.ggyool.domain.ProblemVO">
+		select problem_id, problem_title, problem_type, user_name, reg_date from tbl_problem
+	</select>
 </mapper>

@@ -50,8 +50,22 @@
 	background-color : rgba(255,255,72,0.8);
 }
 
-.contents{
+.title{
 	font-family : Dotum, 'µ¸¿ò', Apple SD Gothic Neo, sans-serif;
 	font-size : 2em;
 	font-weight : bold;
+	text-align:center;
 }
+
+table{
+	width: 80%;
+    border: 1px solid;
+    text-align:center;
+    margin : auto;
+}
+
+th, td {
+  border: 1px solid;
+}
+
+

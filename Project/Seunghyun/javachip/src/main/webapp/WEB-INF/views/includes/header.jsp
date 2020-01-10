@@ -19,7 +19,9 @@
 	<div id="nav">
 		<ul id="nav_ul">
 			<li id="nav_li_home">홈으로</li>
-			<li id="nav_li_problem">문제</li>
+			<li id="nav_li_problem_all">전체 문제</li>
+			<li id="nav_li_problem_register">문제 내기</li>
+			<li id="nav_li_problem_me">내 문제</li>
 			<li id="nav_li_problemSet">문제집</li>
 			<li id="nav_li_lanking">랭킹</li>
 		</ul>
@@ -47,8 +49,15 @@
 		$("#nav_li_home").on("click",function(){
 			self.location = "/";
 		});	
-		$("#nav_li_problem").on("click",function(){
+		$("#nav_li_problem_all").on("click",function(){
 			self.location = "/problem/all";
+		});	
+		$("#nav_li_problem_register").on("click",function(){
+			self.location = "/problem/register";
+		});	
+		
+		$("#nav_li_problem_me").on("click",function(){
+			self.location = "/problem/me";
 		});	
 		
 		$("#user_bar_li_register").on("click",function(){
@@ -58,7 +67,18 @@
 			self.location = "/customLogin";
 		});		
 		$("#user_bar_li_logout").on("click",function(){
-			self.location = "/customLogout";
+			var form = document.createElement("form");
+			form.setAttribute("method", "post");
+			form.setAttribute("action", "/logout");
+			
+			var hiddenField = document.createElement("input");
+			hiddenField.setAttribute('type', 'hidden');
+			hiddenField.setAttribute('name', '${_csrf.parameterName}');
+			hiddenField.setAttribute('value', '${_csrf.token}');
+			
+			form.appendChild(hiddenField);
+			document.body.appendChild(form);
+			form.submit();
 		});		
 		$("#user_bar_li_info").on("click",function(){
 			self.location = "/member/info";

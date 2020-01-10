@@ -1,5 +1,7 @@
 package org.ggyool.mapper;
 
+import java.util.List;
+
 import org.ggyool.domain.ProblemVO;
 
 public interface ProblemMapper {
@@ -7,4 +9,6 @@ public interface ProblemMapper {
 	public int insert(ProblemVO vo);
 	public int update(ProblemVO vo); 
 	public int delete(int problem_id);
+	
+	public List<ProblemVO> getListAll();
 }

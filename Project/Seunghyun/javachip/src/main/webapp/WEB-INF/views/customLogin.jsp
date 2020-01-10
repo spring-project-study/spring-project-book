@@ -4,7 +4,7 @@
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@include file="/WEB-INF/views/includes/header.jsp" %>
 
-<h1>Custom Login Page</h1>
+<h1>로그인</h1>
 <h2>${error}</h2>
 <h2>${logout}</h2>
 

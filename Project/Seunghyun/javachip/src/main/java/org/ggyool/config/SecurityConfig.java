@@ -39,14 +39,14 @@ WebSecurityConfigurerAdapter
         filter.setForceEncoding(true);
         http.addFilterBefore(filter,CsrfFilter.class);
         
-		//http.authorizeRequests()
-		//.antMatchers("/problem/*").access("hasRole('ROLE_MEMBER')");
+		http.authorizeRequests()
+		.antMatchers("/problem/*").access("hasRole('ROLE_USER')");
 
 		http.formLogin().loginPage("/customLogin").loginProcessingUrl("/login")
 		.successHandler(loginSuccessHandler());
 		
 		http.logout()
-		.logoutUrl("/customLogout")
+		//.logoutUrl("/customLogout")
 		.invalidateHttpSession(true);
 	}
 	
