@@ -79,18 +79,8 @@ public class ProblemController {
 		}
 		else {
 			isAnswer = false;
-		}
-		System.out.println("---------------------");
-		
-		if(isAnswer) {
-			System.out.println("정답입니다.");
-		} else {
-			System.out.println("오답입니다.");
-		}			
+		}		
 		rttr.addFlashAttribute("isAnswer", isAnswer);
-		System.out.println("---------------------");
 		return "redirect:/problem/" + pid;
 	}
-	
-	
 }
