@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ggyool.mapper.MultipleChoiceMapper">
+
+	<select id="read" resultType="org.ggyool.domain.MultipleChoiceVO">
+		select choice_id, problem_id, chk_answer, choice_content 
+		from tbl_multiple_choice
+		where choice_id=#{choice_id}
+	</select>
+	
+	<insert id="insert">
+		insert into tbl_multiple_choice (choice_id, problem_id, chk_answer, choice_content) 
+		values (#{choice_id}, #{problem_id}, #{chk_answer}, #{choice_content}) 
+	</insert>
+	
+	<update id="update">
+		update tbl_multiple_choice
+		set problem_id = #{problem_id},
+		chk_answer = #{chk_answer},
+		choice_content = #{choice_content}
+		where choice_id = #{choice_id}
+	</update>
+	
+	<delete id="delete">
+		delete from tbl_multiple_choice where choice_id=#{choice_id}
+	</delete>
+	
+	<select id="getListWithProblem" resultType="org.ggyool.domain.MultipleChoiceVO">
+			select choice_id, chk_answer, choice_content
+			from tbl_multiple_choice 
+			where problem_id = #{problem_id} 
+	</select>
+	
+	<select id="getAnswerListWithProblem" resultType="Integer">
+			select choice_id
+			from tbl_multiple_choice 
+			where problem_id = #{problem_id} and chk_answer = true 
+	</select>
+
+</mapper>

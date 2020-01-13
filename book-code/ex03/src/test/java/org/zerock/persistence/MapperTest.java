@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Criteria;
 import org.zerock.mapper.BoardMapper;
+
+import java.util.List;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -63,5 +66,26 @@ public class MapperTest {
 
         int count = boardMapper.update(board);
         System.out.println(count);
+    }
+
+    @Test
+    public void testGetListWithPage(){
+        Criteria cri = new Criteria();
+        cri.setPageNum(5);
+        List<BoardVO> list = boardMapper.getListWithPaging(cri);
+
+        list.forEach(board -> System.out.println(board));
+
+    }
+
+    @Test
+    public void testSearch() {
+        Criteria cri = new Criteria();
+        cri.setKeyword("새로");
+        cri.setType("TC");
+
+        List<BoardVO> list = boardMapper.getListWithPaging(cri);
+
+        list.forEach(board -> System.out.println(board));
     }
 }

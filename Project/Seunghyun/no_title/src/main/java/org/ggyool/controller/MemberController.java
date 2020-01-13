@@ -1,5 +1,6 @@
 package org.ggyool.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,11 +27,21 @@ public class MemberController {
 	BCryptPasswordEncoder passEncoder;
 	
 	@GetMapping("/register")
-	public String memberRegsiter(HttpServletRequest request) {
+	public String memberRegsiter(HttpServletRequest request) throws UnsupportedEncodingException {
+		//request.setCharacterEncoding("UTF-8");
 		Map<String, ?> flashMap = RequestContextUtils.getInputFlashMap(request);
 		MemberVO vo = (MemberVO) flashMap.get("vo");
 		vo.setUserpw(passEncoder.encode(vo.getUserpw()));
 		service.register(vo);
+		System.out.println("here!");
+		System.out.println(vo.getUserName());
 		return "redirect:/";
 	}
+	
+	@GetMapping("/info")
+	public void memberInfo() {
+		
+	}
+	
+	
 }

@@ -37,5 +37,11 @@ public class MemberServiceImpl implements MemberService{
 		return true;
 	}
 
+	@Override public boolean remove(String userid) {
+		if(mapper.authDelete(userid) == 0) return false;
+		if(mapper.delete(userid) == 0) return false;
+		mapper.deleteTable("tbl_member_" + userid);
+		return true;
+	}
 	
 }
