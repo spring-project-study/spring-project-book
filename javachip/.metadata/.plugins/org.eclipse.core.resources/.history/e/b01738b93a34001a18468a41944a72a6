@@ -1,0 +1,11 @@
+package org.javachip.mapper;
+
+import org.javachip.domain.MemberVO;
+
+public interface MemberMapper {
+	public MemberVO read(String userid);
+	public int insert(MemberVO vo);
+	public int update(MemberVO vo); 
+	public int delete(String userid);
+	public List<MemberVO>();
+}

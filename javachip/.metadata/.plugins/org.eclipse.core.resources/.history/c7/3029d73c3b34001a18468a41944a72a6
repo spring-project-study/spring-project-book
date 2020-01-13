@@ -1,0 +1,6 @@
+//@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = {org.ggyool.config.RootConfig.class} )
+@Log4j
+public class MemberMapperTests {
+
+}

@@ -1,0 +1,6 @@
+package org.javachip.domain;
+
+public class ProblemSubmitVO {
+	private long submut_id;
+	private String user_id;
+}

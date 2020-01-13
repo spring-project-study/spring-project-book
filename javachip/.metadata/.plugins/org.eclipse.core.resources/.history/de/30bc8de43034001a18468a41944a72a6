@@ -1,0 +1,8 @@
+// 루트 로그인, db만들기
+mysql -uroot -p;
+create database javachipdb;
+
+// 아이디 만들기, 권한주기
+create user '아이디'@'%' identified by '비번';
+grant all on javachipdb.* to '아이디'@'%';
+flush privileges;

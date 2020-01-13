@@ -1,0 +1,6 @@
+package org.javachip.domain;
+
+public class MultipleChoiceVO {
+	private long choice_id;
+	private long problem_id;
+}
