@@ -1,14 +1,14 @@
-// 루트 로그인, db만들기
+
 mysql -uroot -p;
 create database javachipdb;
 
-// 아이디 만들기, 권한주기
-create user '아이디'@'%' identified by '비번';
-grant all on javachipdb.* to '아이디'@'%';
+
+create user 'USERNAME'@'%' identified by 'USERPW';
+grant all on javachipdb.* to 'USERNAME'@'%';
 flush privileges;
 
-// exit 후
-mysql -h127.0.0.1 -u아이디 -p javachipdb;
+
+mysql -h127.0.0.1 -u占쏙옙占싱듸옙 -p javachipdb;
 
 create table tbl_member(
 	user_id varchar(50) not null primary key,
@@ -23,6 +23,7 @@ create table tbl_problem(
 	problem_title varchar(400) not null,
 	problem_content varchar(4000) not null,
 	reg_date datetime default current_timestamp,
+	update_date datetime default current_timestamp,
 	user_id varchar(50) not null unique,
 	user_name varchar(50) not null,
 	problem_type char(1) not null,

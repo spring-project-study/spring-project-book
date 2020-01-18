@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import lombok.extern.log4j.Log4j;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+//@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {org.javachip.config.RootConfig.class} )
 @Log4j	
 public class MemberMapperTests {
@@ -20,13 +20,13 @@ public class MemberMapperTests {
 		MemberVO vo = new MemberVO();
 		vo.setUser_id("user01");
 		vo.setUser_pw("user01");
-		vo.setUser_name("À¯Àú01");
+		vo.setUser_name("ï¿½ï¿½ï¿½ï¿½01");
 		mapper.insert(vo);
 	}
 	
 	
 	
-	@Test
+	//@Test
 	public void getListTest() {
 		log.info(mapper.getList());
 	}
