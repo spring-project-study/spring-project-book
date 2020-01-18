@@ -1,6 +1,0 @@
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {org.javachip.config.RootConfig.class} )
-@Log4j	
-public class MemberMapperTests {
-
-}

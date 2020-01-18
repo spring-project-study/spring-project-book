@@ -1,6 +1,0 @@
-package org.javachip.config;
-
-@Configuration
-public class RootConfig {
-
-}

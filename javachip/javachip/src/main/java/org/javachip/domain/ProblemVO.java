@@ -12,6 +12,6 @@ public class ProblemVO {
 	private Date reg_date;
 	private Date update_date;
 	private String user_id;
-	private String user_pw;
-	private boolean problem_type;
+	private String user_name;
+	private String problem_type;
 }

@@ -1,6 +1,0 @@
-package org.javachip.domain;
-
-public class ShortAnswerVO {
-	private long answer_id;
-	private long problem_id;
-}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.javachip.mapper.ProblemMapper">
+
+	<select id="get" resultType="org.javachip.domain.ProblemVO">
+		select * 
+		from tbl_problem 
+		where problem_id = #{problem_id}
+	</select>
+	
+	<insert id="insert">
+		insert into tbl_problem (problem_title, problem_content, user_id, user_name, problem_type) 
+		values (#{problem_title}, #{problem_content}, #{user_id}, #{user_name}, #{problem_type})
+	</insert>
+	
+	<update>
+		update tbl_problem
+		set problem_title = #{problem_title},
+		problem_content = #{problem_content},
+		update_date = current_timestamp;
+		user_name = #{user_name}
+		where problem_id = #{problem_id}
+	</update>
+	
+	<delete id="delete">
+		delete from tbl_problem where problem_id = #{problem_id}
+	</delete>
+	
+	<select id="getList" resultType="org.javachip.domain.ProblemVO">
+		select *
+		from tbl_problem
+	</select>
+</mapper>

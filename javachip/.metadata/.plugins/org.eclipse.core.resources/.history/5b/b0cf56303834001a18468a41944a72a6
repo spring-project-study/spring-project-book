@@ -1,9 +1,0 @@
-package org.javachip.domain;
-
-public class MemberVO {
-	String user_id;
-	private String user_pw;
-	String user_name;
-	Date reg_date
-	
-}

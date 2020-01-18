@@ -45,7 +45,6 @@ INDEX VERSION 1.131+C:\Users\ysh\spring-project-book\javachip\.metadata\.plugins
 4275117588.index
 1461376394.index
 1137215004.index
-1144135104.index
 2434780522.index
 2815013388.index
 908566163.index
