@@ -1,14 +1,14 @@
-// ·çÆ® ·Î±×ÀÎ, db¸¸µé±â
+// ï¿½ï¿½Æ® ï¿½Î±ï¿½ï¿½ï¿½, dbï¿½ï¿½ï¿½ï¿½ï¿½
 mysql -uroot -p;
 create database javachipdb;
 
-// ¾ÆÀÌµð ¸¸µé±â, ±ÇÇÑÁÖ±â
-create user '¾ÆÀÌµð'@'%' identified by 'ºñ¹ø';
-grant all on javachipdb.* to '¾ÆÀÌµð'@'%';
+// ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
+create user 'ï¿½ï¿½ï¿½Ìµï¿½'@'%' identified by 'ï¿½ï¿½ï¿½';
+grant all on javachipdb.* to 'ï¿½ï¿½ï¿½Ìµï¿½'@'%';
 flush privileges;
 
-// exit ÈÄ
-mysql -h127.0.0.1 -u¾ÆÀÌµð -p javachipdb;
+// exit ï¿½ï¿½
+mysql -h127.0.0.1 -uï¿½ï¿½ï¿½Ìµï¿½ -p javachipdb;
 
 create table tbl_member(
 	user_id varchar(50) not null primary key,
@@ -23,7 +23,7 @@ create table tbl_problem(
 	problem_title varchar(400) not null,
 	problem_content varchar(4000) not null,
 	reg_date datetime default current_timestamp,
-	user_id varchar(50) not null unique,
+	user_id varchar(50) not null,
 	user_name varchar(50) not null,
 	problem_type char(1) not null,
 	foreign key (user_id) references tbl_member(user_id)

@@ -17,6 +17,7 @@ public class ServletConfig implements WebMvcConfigurer{
 		bean.setViewClass(JstlView.class);
 		bean.setPrefix("/WEB-INF/views/");
 		bean.setSuffix(".jsp");
+		bean.setContentType("text/html; charset=UTF-8");
 		registry.viewResolver(bean);
 	}
 	
