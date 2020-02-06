@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.javachip.mapper.ProblemMapper">
+	<select id="getListWithPaging" resultType="org.javachip.domain.ProblemVO">
+		<![CDATA[
+			SELECT problem_id, problem_title, user_name, reg_date, problem_type
+			FROM tbl_problem
+			]]>
+			<where>
+				<choose>
+				<when test="type == 'T'.toString()">
+			 		problem_title like concat('%', #{keyword}, '%')
+				</when>
+				<when test="type == 'C'.toString()">
+			 		problem_content like concat('%', #{keyword}, '%')
+				</when>
+				<when test="type == 'W'.toString()">
+			 		user_name like concat('%', #{keyword}, '%')
+				</when>
+				</choose>
+			</where>
+			<![CDATA[
+			ORDER BY problem_id ASC
+			LIMIT #{startNum}, #{amount}
+		]]>
+	</select>
+	<select id="getList" resultType="org.javachip.domain.ProblemVO">
+		select *
+		from tbl_problem
+	</select>
+	<select id="getTotalCount" resultType="int">
+  		select count(*) from tbl_problem 
+  		WHERE problem_id > 0  
+				<choose>
+				<when test="type == 'T'.toString()">
+			 		AND problem_title like concat('%', #{keyword}, '%')
+				</when>
+				<when test="type == 'C'.toString()">
+			 		AND problem_content like concat('%', #{keyword}, '%')
+				</when>
+				<when test="type == 'W'.toString()">
+			 		AND user_name like concat('%', #{keyword}, '%')
+				</when>
+				</choose>
+		
+  	</select>
+</mapper>
