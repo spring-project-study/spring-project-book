@@ -15,12 +15,12 @@ import lombok.extern.log4j.Log4j;
 public class MemberMapperTests {
 	@Autowired
 	private MemberMapper mapper;
-	//@Test
+	@Test
 	public void insertTest() {
 		MemberVO vo = new MemberVO();
 		vo.setUser_id("user01");
 		vo.setUser_pw("user01");
-		vo.setUser_name("À¯Àú01");
+		vo.setUser_name("user01");
 		mapper.insert(vo);
 	}
 	
